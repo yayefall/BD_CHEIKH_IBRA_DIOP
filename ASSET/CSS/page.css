@@ -1,0 +1,18 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container-fluid{
+    background-image: url('../IMG/profil.jpeg');
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    
+}
+
+.containers{
+    background-color: chocolate;
+}
+.card-header{
+    background-color: chocolate;
+}

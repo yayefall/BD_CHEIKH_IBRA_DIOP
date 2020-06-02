@@ -1,0 +1,36 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container-fluid{
+    background-image: url('../IMG/profil.jpeg');
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    
+}
+
+.containers{
+    background-color: chocolate;
+}
+.btn{
+    background-color: chocolate;
+}
+.content{
+
+    position: absolute;
+   width: 199px;
+   height: 210px;
+   left: 250px;
+   top: 31px;
+   border-radius: 100%;
+   border:#C4C4C4 solid 1px;
+   background-color:chocolate;
+    }
+   
+    .content img{
+       width: 100%;
+       height: 100%;
+       border-radius: 100%;
+     
+   }

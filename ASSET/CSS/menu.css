@@ -1,0 +1,39 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container-fluid{
+    background-image: url('../IMG/profil.jpeg');
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    
+}
+
+.containers{
+    background-color: chocolate;
+}
+
+.image{
+
+    position: absolute;
+   width: 60px;
+   height: 60px;
+   left: 200px;
+   top: 200px;
+   border-radius: 100%;
+   border:black solid 3px;
+   background-color:black;
+    }
+   
+    .image img{
+       width: 100%;
+       height: 100%;
+       border-radius: 100%;
+     
+   }
+   .name{
+     width: 60px;
+     height: 60px;
+     border: black 1px solid;  
+   }
