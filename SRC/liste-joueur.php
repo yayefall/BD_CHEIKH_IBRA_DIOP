@@ -20,11 +20,33 @@ include("function.php");
 $cnx = getConnection();
 $state = $cnx->prepare("SELECT nom,prenom, score FROM `user`,score WHERE `role`='joueur' AND user.id=score.id ORDER BY 'score' DESC");
 $state->execute();
-var_dump($state);
-//$result =$state->fetchAll();
+
+$result =$state->fetchAll();
 
 
+$colonne=array_column($result,"score");
+array_multisort($colonne,SORT_DESC,$result);
 
+/*echo "<pre>";
+print_r($result);
+echo"</pre>";*/
+
+echo "<fieldset  class='border border-secondary mt-3'>";
+echo "<table>";
+echo '<td><strong> Nom  </strong></td>  <td><strong>Prenom  </strong></td>  <td><strong> Score </strong> </td>';
+
+for ($i=0; $i <count($result); $i++) { 
+        echo"<tr>";
+        echo "<td> <br>".$result[$i]["nom"]."</td>";
+        echo "<td> <br>".$result[$i]["prenom"]."</td>";
+        echo "<td> <br>".$result[$i]["score"]."pts</td>";
+        
+        echo"</tr>";
+
+}
+echo"</table>";
+
+echo" </fieldset>";
 ?>
 </div>
 

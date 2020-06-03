@@ -22,7 +22,7 @@
     });
  });*/
 
- $(function(){
+ /*$(function(){
 
     $('#myform').validate({
 rules:{
@@ -48,4 +48,6 @@ messages:{
     });
 alert("merci de vous inscrire");
 
- });
+ });*/
+ alert("merci de vous inscrire");
+ 

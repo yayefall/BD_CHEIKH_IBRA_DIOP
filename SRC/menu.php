@@ -61,7 +61,7 @@ if(isset($_GET['user'])) {
 
    }
 
-   if($_GET['user']=="liste-questio"){
+   if($_GET['user']=="liste-question"){
     require_once("liste-question.php");
 
    }
@@ -82,8 +82,8 @@ if(isset($_GET['user'])) {
 
 <div class="container col-lg-5">
 
-<div class="  mx-auto mt-5 col-md-5 "><img class='rounded rounded-circle 'height='30%' width='100%' src="<?php echo $_SESSION["user"]["avatar"]  ?>" alt=""></div> 
-<div class=" text-dark bg-white font-weight-bold col-md-5 mx-auto  "><?php  echo  $_SESSION["user"]["prenom"] ;?> <br> <?php  echo  $_SESSION["user"]["nom"] ;?></div>
+<div class="  mx-auto col-md-5 "><img class='rounded rounded-circle' height='30%' width='100%' src="<?php echo $_SESSION["user"]["avatar"]  ?>" alt=""></div> 
+<div class=" text-dark bg-white font-weight-bold col-md-5 mx-auto  "><?php  echo  $_SESSION["user"]["prenom"] ;?>  <?php  echo  $_SESSION["user"]["nom"] ;?></div>
 
 </div>
 

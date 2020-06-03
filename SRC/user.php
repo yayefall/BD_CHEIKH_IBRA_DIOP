@@ -52,8 +52,7 @@ include("function.php");
         $cnx = getConnection();
         // preparation de la requete d'insertion
         $state = $cnx->prepare("INSERT INTO user(login,nom,prenom,password,avatar,role) VALUES (:login,:nom,:prenom,:password,:avatar,:role)");
-        // la liaison de chaque  attribut a une valeur
-       
+        
          // execution de la requete preparée
          $result= $state->execute(array(
 
