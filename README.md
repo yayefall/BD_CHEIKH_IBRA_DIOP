@@ -1,3 +1,3 @@
-admin : mbaye@gmail.com  /mbaye0000
+admin : cheikh@gmail.com  /cheikh0000
 
 joueur: lamp@gmail.com/lamp0000
