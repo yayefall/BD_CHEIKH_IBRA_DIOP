@@ -3,7 +3,7 @@
 session_start();
       include("SRC/function.php");
 
-if(isset ($_POST['bouton'])){
+ if(isset ($_POST['bouton'])){
 
     if(!empty($_POST['login']) && !empty($_POST['password']))
     {
@@ -19,32 +19,20 @@ if(isset ($_POST['bouton'])){
             # User exite
             if($result[0]['role']=="admin"){
                 //page  compte admin
-                header('location:./SRC/menu.php?user=liste-jourur');
+                $_SESSION["admin"]=$result[0]['avatar'];
+                header('location:./SRC/menu.php?user=liste-joueur');
             }else{
                 //page joueur      
-                header('location:./SRC/joueur.php');
-            }
-           
-            
+                header('location:./SRC/joueur.php?page=0');
+            }   
         }else{
             // User n'existe pas 
             echo " <p style='color:red'><strong>Cet utilisateur n'existe pas , veuillez vous inscrire.</strong></p>"; 
         }
-
-    
-
-
-
-
     }else{
         echo"<p style='color:red'><strong>Tous les champs sont obligatoire *!!</strong></p>";
     }
-
-
-
 }
-
-
 ?>
 
 
@@ -74,7 +62,7 @@ if(isset ($_POST['bouton'])){
   <h5 class="card-header  white-text text-center py-4 ">
     <strong>HOME PAGE</strong>
   </h5>
-
+<div id='test'></div>
   <!--Card content-->
   <div class="card-body px-lg-5 pt-0 ">
 

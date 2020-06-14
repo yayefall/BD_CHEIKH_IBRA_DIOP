@@ -2,6 +2,9 @@
     padding: 0px;
     margin: 0px;
 }
+
+
+
 .container-fluid{
     background-image: url('../IMG/profil.jpeg');
     width: 100%;
@@ -13,3 +16,12 @@
 .containers{
     background-color: chocolate;
 }
+button{
+    background-color: chocolate;
+}
+
+#suivant{
+    background-color:chocolate;
+    
+
+    }

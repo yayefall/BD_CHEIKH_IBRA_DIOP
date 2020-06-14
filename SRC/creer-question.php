@@ -1,5 +1,5 @@
 <?php 
-include("function.php");
+/*include("function.php");
 
 if(isset($_POST['valider'])){
 
@@ -41,7 +41,7 @@ if(isset($_POST['valider'])){
         echo"<p style='color:red'><strong>Tous les champs sont obligatoire *!!</strong></p>";
     }
 }
-
+*/
 
 ?>
 
@@ -56,40 +56,45 @@ if(isset($_POST['valider'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
   </head>
   <body>
       
 <style> span {color:red;font-size:10px; }</style>
-     
-     <div class="bg-white float-left col-lg-5 p-2"> 
-            <div style="color:rgba(0, 128, 122, 0.774); text-align:center"><h3>PARAMETRER VOTRE QUESTION</h3></div>
+     <div class="row justify-content-center mt-4">
+     <div class="bg-white float-left col-lg-6 p-3 rounded-3"> 
+            <div style="color:rgba(0, 128, 122, 0.774); text-align:center"><h4>PARAMETRER VOTRE QUESTION</h4></div>
             <div class="creer-question">
-                 <form action="" method="POST" ><br>
+            <div id="result"></div>
+                 <form action="" method="POST" id="myForm"><br>
                      <label for=""><strong>Question </strong></label>
-                 <textarea name="question" id="question" cols="60" rows="5" style="border-radius:2px"></textarea><br><br>
+                 <textarea name="question" id="question" cols="60" rows="5" style="border-radius:2px" class="groupA"></textarea><br>
                      <span id="question_error"></span><br>
                      <label for=""> <strong> Nbre de points</strong> </label>
-                     <select style="width:50px;height:30px" name="point"  id="point">
+                     <select style="width:50px;height:30px" name="point"  id="point" class="groupA">
                          <option > </option>
-                         <option > 1</option>
-                         <option >45</option>
-                         <option >30</option>
-                         <option >3</option>
-                         <option >4</option>
-                         <option >5</option>
-                         <option >16</option>
-                         <option >20</option>
-                         <option>10</option>
-                         <option>8</option>
-                         <option >2</option>
-                    </select> <br><br>                               
+                         <option value="1" > 1</option>
+                         <option  value="45">45</option>
+                         <option value="30">30</option>
+                         <option  value="3">3</option>
+                         <option  value="4">4</option>
+                         <option  value="5">5</option>
+                         <option  value="16">16</option>
+                         <option  value="20">20</option>
+                         <option  value="10">10</option>
+                         <option  value="8">8</option>
+                         <option  value="2">2</option>
+                    </select> <br>                              
                      <span id="point_error"></span>
 
                  <div class="row" id="row_0">
                      <label for=""> <strong>Type de réponse</strong></label>
-                     <select style="width:300px;height:40px" name="reponse" id="reponse">
+                     <select style="width:300px;height:40px" name="reponse" id="reponse" class="groupA">
                          <option value=""></option>
                          <option>Donner le type de réponse</option>
                          <option   value="simple">Choix simple</option>  
@@ -109,15 +114,20 @@ if(isset($_POST['valider'])){
       </div><!-- fin div bady-->
     
       </form>
+      </div>
        <!-- jquery et ajax  pour validation -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
     
     <!-- Optional JavaScript -->
-    <script src="../ASSET/JS/creer-question.js"></script>
+  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../ASSET/JS/creer-question.js"></script> 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+    
+     <script src="../ASSET/JS/insert-test.js"></script>
   </body>
 </html>

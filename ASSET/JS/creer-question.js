@@ -1,4 +1,4 @@
-alert("voulez vous générer des questions??");
+//alert("voulez vous générer des questions??");
     
 var nbreLigne= 0 ;
 function onAddInput()
@@ -26,9 +26,9 @@ function onAddInput()
    tot++;
    }
   
-    newInput.innerHTML=`<strong style="font-size: 22px;">Réponse ${nbreLigne} </strong>
+    newInput.innerHTML=`<strong style="font-size: 20px;">Réponse ${nbreLigne} </strong>
    <input type="text" name="requette_`+tot+`" style=" height:35px;width:280px" >
-   <input type="checkbox" name="BonneReponse`+tot+`" id="" value='`+tot+`'>
+   <input type="checkbox" name="BonneReponse`+tot+`" id="" value="true">
    <button type="button" onclick="onDeleteInput(${nbreLigne})" style=" padding:0px"><img style="width:20px,height:20px" src="../ASSET/IMG/ic-supprimer.png" alt=""></button> 
 
   `;
@@ -45,7 +45,7 @@ function onAddInput()
     tot++;
     }
     
-    newInput.innerHTML=` <strong style="font-size: 22px;">Réponse ${nbreLigne} </strong>
+    newInput.innerHTML=` <strong style="font-size: 20px;">Réponse ${nbreLigne} </strong>
     <input type="text" name="requette_`+tot+`" style=" height:35px;width:280px" >
     <input type="radio" name="bonneReponse" value='`+tot+`' id="" >
     <button type="button" onclick="onDeleteInput(${nbreLigne})" style=" padding:0px"><img style="width:20px,height:20px" src="../ASSET/IMG/ic-supprimer.png" alt=""></button> 
@@ -60,7 +60,7 @@ function onAddInput()
       //var bouton=document.getElementById("bouton");
       //bouton.disabled();   
 
-       newInput.innerHTML=` <strong style="font-size: 22px;">Réponse texte</strong>
+       newInput.innerHTML=` <strong style="font-size: 20px;">Réponse texte</strong>
        <input type="text" name="requette2" id="requette2" style=" height:40px;width:280px"  >
        <button type="button" onclick="onDeleteInput(${nbreLigne})" style=" padding:0px"><img style="width:20px,height:20px" src="../ASSET/IMG/ic-supprimer.png" alt=""></button> 
    
@@ -82,7 +82,7 @@ function onAddInput()
 
  }
 
-
+/*
 var question=document.getElementById('question');
 var question_error=document.getElementById('question_error');
 var regex_question=/^[A-Z][^.;!:]+[.!:?]$/;
@@ -132,5 +132,109 @@ if (question.value=="")
 
 
 
+}*/
+
+$(document).ready(function(){ 
+
+$("#question_error").hide();
+$("#point_error").hide();
+$("#reponse_error").hide();
+
+var question_error=false;
+var point_error=false;
+var reponse_error=false;
+
+$("#question").focusout(function(){
+
+   check_question();
+
+});
+$("#point").focusout(function(){
+
+   check_point();
+
+});
+$("#reponse").focusout(function(){
+
+   check_reponse();
+
+});
+
+function check_question(){
+  
+   var question=$("#question").val();
+   var question_regex=/^[A-Z][^.;!:]+[.!:?]$/;
+
+   if(question_regex.test(question) && question!==""){
+
+       $(".groupA").css("border","2px solid green");
+       $("#question_error").hide();
+
+   }else{
+       
+       $("#question_error").html("invalide");
+       $("#question_error").show();
+       $(".groupA").css("border","2px solid red");
+       question_error=true;
+   }
+   
 }
 
+function check_point(){
+  
+   var point=$("#point").val();
+   
+   if(point!==""){
+
+       $(".groupB").css("border","2px solid green");
+       $("#point_error").hide();
+
+   }else{
+       
+       $("#point_error").html("invalide");
+       $("#point_error").show();
+       $(".groupB").css("border","2px solid red");
+       point_error=true;
+   }
+   
+}
+
+function check_reponse(){
+  
+   var reponse=$("#reponse").val();
+  
+   if( reponse!==""){
+
+       $(".groupC").css("border","2px solid green");
+       $("#reponse_error").hide();
+
+   }else{
+       
+       $("#reponse_error").html("invalide");
+       $("#reponse_error").show();
+       $(".groupC").css("border","2px solid red");
+       reponse_error=true;
+   }
+   
+}
+$("#myForm").submit(function(){
+
+   question_error=false;
+   point_error=false;
+   reponse_error=false;
+
+   check_question();
+   check_point();
+   check_reponse();
+
+   if( question_error===false && point_error===false && reponse_error===false){
+
+      alert("Tous les champs sont remplis.");
+      return false;
+   }else{
+      alert("Remplir les champs correctement");
+      return false;
+   }
+   
+   });
+});
